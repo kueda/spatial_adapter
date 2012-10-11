@@ -3,6 +3,7 @@ require 'active_record/connection_adapters/postgresql_adapter'
 
 module ActiveRecord::ConnectionAdapters
   class PostgreSQLAdapter
+    
     def postgis_version
       select_value("SELECT postgis_full_version()").scan(/POSTGIS="([\d\.]*)"/)[0][0]
     rescue ActiveRecord::StatementInvalid
